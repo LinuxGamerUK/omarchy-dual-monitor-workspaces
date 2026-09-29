@@ -1,11 +1,12 @@
 {
   "schemaVersion": 1,
-  "id": "io.github.derluke.dual-monitor-workspaces",
+  "id": "io.github.linuxgameruk.dual-monitor-workspaces",
   "name": "Dual Monitor Workspaces",
-  "version": "1.0.1",
-  "author": "Lukas Innig",
+  "version": "2.0.0",
+  "author": "Gavin Hayes (LinuxGamerUK)",
   "license": "MIT",
-  "description": "Independent workspace banks, navigation, and indicators for dual-monitor Omarchy.",
+  "description": "Persistent numbered workspace banks: 1-5 on the first monitor, 6-10 on the second. SUPER+SHIFT+N sends windows across screens. No external Hyprland plugin required.",
+  "repository": "https://github.com/LinuxGamerUK/omarchy-dual-monitor-workspaces",
   "kinds": [
     "bar-widget"
   ],
@@ -14,9 +15,24 @@
   },
   "barWidget": {
     "displayName": "Dual Monitor Workspaces",
-    "description": "Per-screen indicators for independent dual-monitor workspaces",
+    "description": "Numbered per-screen workspace banks (1-5 first monitor, 6-10 second) with persistent Hyprland workspace rules",
     "category": "Compositor",
     "allowMultiple": false,
-    "defaultSection": "left"
+    "defaultSection": "left",
+    "defaults": {
+      "perBank": 5
+    },
+    "schema": [
+      {
+        "key": "perBank",
+        "type": "integer",
+        "label": "Workspaces per monitor bank",
+        "description": "Bank 1 (first monitor) covers 1..perBank, bank 2 (second monitor) covers perBank+1..2*perBank. Changing this also requires re-running the plugin's scripts/install.sh.",
+        "min": 1,
+        "max": 9,
+        "step": 1,
+        "defaultValue": 5
+      }
+    ]
   }
 }
