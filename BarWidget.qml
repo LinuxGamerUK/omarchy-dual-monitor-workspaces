@@ -52,8 +52,7 @@ BarWidget {
         id: id,
         workspace: workspace,
         occupied: workspace !== null && workspace.toplevels.values.length > 0,
-        active: workspace !== null && workspace.active,
-        focused: Hyprland.focusedWorkspace !== null && Hyprland.focusedWorkspace.id === id
+        active: workspace !== null && workspace.active
       })
     }
     return out
@@ -85,14 +84,14 @@ BarWidget {
         required property var modelData
 
         readonly property int wsId: modelData.id
-        readonly property bool focused: modelData.focused
+        readonly property bool active: modelData.active
         // Persistent workspaces stay visible even when empty; on setups
         // without the rules installed, empty ids fade instead.
         readonly property bool visible_empty: modelData.occupied || modelData.workspace !== null
 
         bar: root.bar
-        text: focused ? "\uDB85\uDCFB" : (wsId === 10 ? "0" : String(wsId))
-        opacity: focused || modelData.occupied ? 1 : (visible_empty ? 0.5 : 0.25)
+        text: active ? "\uDB85\uDCFB" : (wsId === 10 ? "0" : String(wsId))
+        opacity: active || modelData.occupied ? 1 : (visible_empty ? 0.5 : 0.25)
         horizontalMargin: 6
         verticalPadding: 6
         fixedWidth: root.vertical ? root.barSize : Style.space(20)
