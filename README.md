@@ -81,6 +81,9 @@ Hyprland. Existing windows and workspaces are untouched.
 
 - `omarchy refresh hyprland` rewrites `hyprland.lua` — re-run
   `scripts/install.sh` afterwards.
+- Rules re-apply themselves on boot (`hyprland.start`) and on monitor
+  hotplug/layout changes (`monitor.layout_changed`), because at a cold boot
+  the Hyprland config parses before outputs are enumerated.
 - Monitors beyond the first two get no banks (they still show their currently
   active workspace via other means; this widget draws nothing on them).
 - Requires Hyprland **0.55 or newer** (Lua config + `hl.workspace_rule`

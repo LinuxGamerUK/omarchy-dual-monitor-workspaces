@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "io.github.linuxgameruk.dual-monitor-workspaces",
   "name": "Dual Monitor Workspaces",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "Gavin Hayes (LinuxGamerUK)",
   "license": "MIT",
   "description": "Persistent numbered workspace banks: 1-5 on the first monitor, 6-10 on the second. SUPER+SHIFT+N sends windows across screens. No external Hyprland plugin required.",
